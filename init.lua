@@ -3,6 +3,8 @@
 	-- Copyright (c) 2013 Kenny Shields --
 --]]------------------------------------------------
 
+local _PACKAGE = ...
+
 -- central library table
 loveframes = {}
 
@@ -14,7 +16,7 @@ loveframes.info.stage = "Alpha"
 
 -- library configurations
 loveframes.config = {}
-loveframes.config["DIRECTORY"] = ""
+loveframes.config["DIRECTORY"] = nil
 loveframes.config["DEFAULTSKIN"] = "Blue"
 loveframes.config["ACTIVESKIN"] = "Blue"
 loveframes.config["INDEXSKINIMAGES"] = true
@@ -37,7 +39,7 @@ loveframes.objects = {}
 function loveframes.load()
 	
 	-- install directory of the library
-	local dir = loveframes.config["DIRECTORY"]
+	local dir = loveframes.config["DIRECTORY"] or _PACKAGE
 	
 	-- require the internal base libraries
 	require(dir .. ".third-party.middleclass")
